@@ -23,7 +23,13 @@ def view_task():#할 일 목록보기
     pass
 
 def complete_task(task_number):#할 일 완료
-    pass
+    tasks = load_task()
+    if 0 < task_number <= len(tasks):
+        tasks[task_number-1]['completed'] = True
+        save_task(tasks)
+        print(f"할 일 : {tasks[task_number-1]['name']}이(가) 완료 되었습니다")
+    else:
+        print("유효하지 않은 번호입니다. 다시 확인해주세요")
 
 def delete_task(task_number):#할 일 삭제
     pass
