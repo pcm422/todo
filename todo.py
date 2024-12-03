@@ -39,7 +39,13 @@ def complete_task(task_number):#할 일 완료
         print("유효하지 않은 번호입니다. 다시 확인해주세요")
 
 def delete_task(task_number):#할 일 삭제
-    pass
+    tasks = load_task()
+    if 1 <= task_number <= len(tasks):
+        delete_tsk = tasks.pop(task_number-1)
+        save_task(delete_tsk)
+        print(f"할 일 : '{delete_tsk['name']}'이(가) 삭제되었습니다")
+    else:
+        print("유효하지 않은 작업 번호입니다. 다시 확인해주세요")
 
 def show_menu(): #메뉴를 보여주는 함수
     print("작업 관리 애플리케이션")
